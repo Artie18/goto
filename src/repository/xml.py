@@ -14,9 +14,24 @@ class Shortcut:
         pass
 
     def save(self):
-        with open('test.csv', 'rb') as csvfile:
-            csv.reader(csvfile)
+        if self.__isExists():
+            raise 'Keyword already exists'
+        else:
+            with open('test.csv', 'a') as csvfile:
+                csvfile.write('(0),(1)'.format(self.keyword, self.path))
+                return True
 
 
     def delete(self):
         pass
+
+    def __isExists(self):
+        __result = False
+        with open('test.csv', 'rb') as csvfile:
+            data = csv.reader(csvfile)
+            for obj in data:
+                if obj[0] == self.keyword:
+                    __result = True
+                    return __result
+        return __result
+
