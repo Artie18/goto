@@ -4,15 +4,15 @@ import os
 
 class Main(object):
     @staticmethod
-    def add_shortcut(name):
-        shortcut = Shortcut(name)
+    def add_shortcut(keyword, path):
+        shortcut = Shortcut(keyword, path)
         shortcut.save()
 
     @staticmethod
     def goto(keyword):
         shortcut = Shortcut.find_by_keyword(keyword)
         if shortcut:
-            os.system('cd (0)'.format(shortcut.path))
+            os.system('cd {0}'.format(shortcut.path))
         else:
             raise Exception('Keyword not found!')
 

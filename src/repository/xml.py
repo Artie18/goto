@@ -15,10 +15,10 @@ class Shortcut:
 
     def save(self):
         if self.__isExists():
-            raise 'Keyword already exists'
+            raise Exception('Keyword already exists')
         else:
             with open('test.csv', 'a') as csvfile:
-                csvfile.write('(0),(1)'.format(self.keyword, self.path))
+                csvfile.write('{0},{1}\n'.format(self.keyword, self.path))
                 return True
 
 
