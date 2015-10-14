@@ -31,7 +31,8 @@ if __name__ == '__main__':
     args_len = len(sys.argv)
     if args_len == 2 and '--list' not in sys.argv:
         execute(sys.argv[1])
-    main(sys.argv[1:])
+    else:
+        main(sys.argv[1:])
 
 
 
