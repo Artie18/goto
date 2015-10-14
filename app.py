@@ -5,17 +5,20 @@ import sys, getopt
 def main(argv):
     __keyword, __path = '', ''
     try:
-        opts, args = getopt.getopt(argv, 'a:p:', [])
+        opts, args = getopt.getopt(argv, 'a:p:', ['list'])
     except getopt.GetoptError:
-        raise Exception('Keyword already exists')
+        raise Exception('Something went wrong')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-a':
             __keyword = arg
         elif opt == '-p':
             __path = arg
-    Main.add_shortcut(__keyword, __path)
-    print('{0} is added with a pass {1}'.format(__keyword, __path))
+        elif opt == '--list':
+            Main.list()
+    if '-a' in sys.argv[1:]:
+        Main.add_shortcut(__keyword, __path)
+        print('{0} is added with a pass {1}'.format(__keyword, __path))
 if __name__ == '__main__':
     main(sys.argv[1:])
 

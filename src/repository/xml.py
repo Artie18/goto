@@ -7,7 +7,10 @@ class Shortcut:
 
     @staticmethod
     def all():
-        pass
+        with open('test.csv', 'rb') as csvfile:
+            data = csv.reader(csvfile)
+            for __keyword, __path in data:
+                print("Keyword: {0}, Path: {1}".format(__keyword, __path))
 
     @staticmethod
     def find_by_keyword(keyword):
