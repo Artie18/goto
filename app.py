@@ -1,5 +1,7 @@
+import sys
+import getopt
+
 from src.main import Main
-import sys, getopt
 
 
 def main(argv):
@@ -19,7 +21,17 @@ def main(argv):
     if '-a' in sys.argv[1:]:
         Main.add_shortcut(__keyword, __path)
         print('{0} is added with a pass {1}'.format(__keyword, __path))
+
+
+def execute(__keyword):
+    Main.goto(__keyword)
+
+
 if __name__ == '__main__':
+    args_len = len(sys.argv)
+    if args_len == 2 and '--list' not in sys.argv:
+        execute(sys.argv[1])
     main(sys.argv[1:])
+
 
 

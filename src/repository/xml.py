@@ -1,9 +1,11 @@
 import csv
 
+
 class Shortcut:
-    def __init__(self, _keyword, _path):
+    def __init__(self, _keyword, _path, _existing = False):
         self.keyword = _keyword
         self.path = _path
+        self.existing = _existing
 
     @staticmethod
     def all():
@@ -13,12 +15,18 @@ class Shortcut:
                 print("Keyword: {0}, Path: {1}".format(__keyword, __path))
 
     @staticmethod
-    def find_by_keyword(keyword):
-        pass
+    def find_by_keyword(__keyword):
+        with open('test.csv', 'rb') as csvfile:
+            data = csv.reader(csvfile)
+            for keyword, path in data:
+                if keyword == __keyword:
+                    return Shortcut(keyword, path, True)
 
     def save(self):
         if self.__isExists():
             raise Exception('Keyword already exists')
+        elif self.existing:
+            raise Exception('Cant rewrite the keyword')
         else:
             with open('test.csv', 'a') as csvfile:
                 csvfile.write('{0},{1}\n'.format(self.keyword, self.path))

@@ -22,7 +22,7 @@ var/
 *.egg-info/
 .installed.cfg
 .idea
-test.csv
+./test.csv
 *.egg
 
 # PyInstaller

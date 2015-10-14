@@ -1,5 +1,5 @@
 from repository.xml import Shortcut
-import os
+import posix
 
 
 class Main(object):
@@ -11,8 +11,9 @@ class Main(object):
     @staticmethod
     def goto(keyword):
         shortcut = Shortcut.find_by_keyword(keyword)
+        print(shortcut.keyword, '-', shortcut.path)
         if shortcut:
-            os.system('cd {0}'.format(shortcut.path))
+            posix.chdir(shortcut.path)
         else:
             raise Exception('Keyword not found!')
 
