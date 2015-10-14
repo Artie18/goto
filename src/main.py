@@ -1,4 +1,4 @@
-from repository.xml import Shortcut
+from repository.shortcut import Shortcut
 import posix
 
 
