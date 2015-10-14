@@ -2,7 +2,7 @@ import csv
 
 
 class Shortcut:
-    def __init__(self, _keyword, _path, _existing = False):
+    def __init__(self, _keyword, _path, _existing=False):
         self.keyword = _keyword
         self.path = _path
         self.existing = _existing
@@ -10,9 +10,7 @@ class Shortcut:
     @staticmethod
     def all():
         with open('test.csv', 'rb') as csvfile:
-            data = csv.reader(csvfile)
-            for __keyword, __path in data:
-                print("Keyword: {0}, Path: {1}".format(__keyword, __path))
+            return csv.reader(csvfile)
 
     @staticmethod
     def find_by_keyword(__keyword):
@@ -32,7 +30,6 @@ class Shortcut:
                 csvfile.write('{0},{1}\n'.format(self.keyword, self.path))
                 return True
 
-
     def delete(self):
         pass
 
@@ -45,4 +42,3 @@ class Shortcut:
                     __result = True
                     return __result
         return __result
-
