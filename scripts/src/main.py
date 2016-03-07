@@ -13,12 +13,7 @@ class Main(object):
     def goto(keyword):
         shortcut = Shortcut.find_by_keyword(keyword)
         if shortcut:
-            #posix.chdir(shortcut.path)
-            # posix.system('eval echo cd /')
-            # popen = subprocess.Popen('cd {0}'.format(shortcut.path), stdout=subprocess.PIPE, shell=True)
-            # output = popen.communicate()[0]
-            print(output)
-            # os.environ.update(output)
+            print(shortcut.path)
         else:
             raise Exception('Keyword not found!')
 

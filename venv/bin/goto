@@ -1,0 +1,10 @@
+#!/Users/artyom.fedenka/Documents/non-tw-wspace/goto/venv/bin/python2.7
+# EASY-INSTALL-ENTRY-SCRIPT: 'goto','console_scripts','goto'
+__requires__ = 'goto'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('goto', 'console_scripts', 'goto')()
+    )

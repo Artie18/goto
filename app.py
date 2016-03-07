@@ -33,6 +33,3 @@ if __name__ == '__main__':
         execute(sys.argv[1])
     else:
         main(sys.argv[1:])
-
-
-
